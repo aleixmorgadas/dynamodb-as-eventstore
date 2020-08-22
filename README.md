@@ -41,6 +41,33 @@ At `infrastructure` folder, execute `./run.sh`.
 
 At `infrastructure` folder, execute `./destroy.sh`.
 
+## Solution Design. Trade-offs
+
+* Queue isn't a FIFO (First In-First Out).
+
+It has consequences in the order the events are stored. Even though they contain a timestamp, they might get stored in a different order they have been produced.
+
+In case of low traffic it might not be a real issue. But in case the application starts emitting events intensively that require them to be ordered, you might need to switch from a normal Queue to a FIFO Queue or Kinesis.
+
+* Hash Key and Sort Key
+
+Hash Key = `ID`
+Sort Key = `Timestamp`
+
+The idea is to have the Events Ordered by Timestamp.
+
+* Items don't expire
+
+I haven't configured the [Time to Live (TTL)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html) in DynamoDB. The table will grow in infinitum.w
+
+* Only one Index
+
+You might want to add more indexes to query the events as you like.
+
+  * Info in [Terraform](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dynamodb_table#global_secondary_index) to add them in DynamoDB table configuration.
+
+  * Info in [AWS About Global Secondary Indexes](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html) and why you should define them to [perform queries instead of scans](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-query-scan.html).
+
 ## Event Base
 
 All events received by the lambda __must__ follow the next schema:
