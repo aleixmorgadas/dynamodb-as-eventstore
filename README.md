@@ -64,7 +64,7 @@ Example:
 	"EventType"	: "EVENT_TEST",
 	"ID"		: "53877b2e-e496-11ea-b678-9b42a44d5e59",
 	"EmitterId"	: "6b04fd08-e496-11ea-8176-9f85e075569c",
-    "EmitterType": "USER_CREATED",
+    "EmitterType": "USER",
 	"Data"		: {
 		"foo": "bar"
 	}
