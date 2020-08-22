@@ -31,7 +31,7 @@ resource "aws_dynamodb_table" "event-store" {
   }
 
   lifecycle {
-    prevent_destroy = false
+    prevent_destroy = var.prevent_destroy_event_journal
   }
 }
 

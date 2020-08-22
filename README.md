@@ -33,9 +33,13 @@ You might need `python3-venv` as OS dependency installed.
 Before Deployment, you should check:
 
 - `infrastructure/main.tf`. The region
-- `infrastructure/variables.tf`. Set the read and write capacity of DynamoDB that you need. Default read-capacity 1, write-capacity 1.
+- `infrastructure/variables.tf`. Set the read and write capacity of DynamoDB that you need. Default read-capacity 1, write-capacity 1. Also, prevent destroy for the `event-store` is set to false as default.
 
 At `infrastructure` folder, execute `./run.sh`.
+
+## Destroy Infrastructure
+
+At `infrastructure` folder, execute `./destroy.sh`.
 
 ## Event Base
 
@@ -48,8 +52,8 @@ All events received by the lambda __must__ follow the next schema:
 | ID        | String    | true      | Id of the entity  |
 | EmitterId | String    | true      | Id of the user or system that caused the event |
 | EmitterType | String    | true      | `SYSTEM` or `USER` |
-| Data      | Object | null    | true      | fields of the event |
-
+| Data      | Object     | false      | fields of the event |
+| null
 In case of not following the schema, the event will be rejected.
 
 Example:
