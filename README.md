@@ -37,7 +37,7 @@ Before Deployment, you should check:
 
 At `infrastructure` folder, execute `./run.sh`.
 
-## Destroy Infrastructure
+## Destroy Infrastructure :rescue_worker_helmet:
 
 At `infrastructure` folder, execute `./destroy.sh`.
 
@@ -51,7 +51,7 @@ All events received by the lambda __must__ follow the next schema:
 | EventType | String    | true      | Event identifier. Format `EVENT_EXAMPLE` |
 | ID        | String    | true      | Id of the entity  |
 | EmitterId | String    | true      | Id of the user or system that caused the event |
-| EmitterType | String    | true      | `SYSTEM` or `USER` |
+| EmitterType | String    | true      | `SYSTEM` or `USER` is what we use. It's a free text |
 | Data      | Object     | false      | fields of the event |
 | null
 In case of not following the schema, the event will be rejected.
@@ -62,9 +62,9 @@ Example:
 {
 	"Timestamp"	: 1596719980,
 	"EventType"	: "EVENT_TEST",
-	"ID"		: "test_id",
-	"EmitterId"	: "me",
-    "EmitterType": "human",
+	"ID"		: "53877b2e-e496-11ea-b678-9b42a44d5e59",
+	"EmitterId"	: "6b04fd08-e496-11ea-8176-9f85e075569c",
+    "EmitterType": "USER_CREATED",
 	"Data"		: {
 		"foo": "bar"
 	}
