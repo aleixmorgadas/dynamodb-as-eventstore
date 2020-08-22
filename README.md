@@ -26,6 +26,17 @@ pip install -r requirements.txt
 
 You might need `python3-venv` as OS dependency installed.
 
+## Deployment
+
+:warning: __The provided solution will incur in your billing as some services are not part of the AWS Free Tier__ 
+
+Before Deployment, you should check:
+
+- `infrastructure/main.tf`. The region
+- `infrastructure/variables.tf`. Set the read and write capacity of DynamoDB that you need. Default read-capacity 1, write-capacity 1.
+
+At `infrastructure` folder, execute `./run.sh`.
+
 ## Event Base
 
 All events received by the lambda __must__ follow the next schema:
