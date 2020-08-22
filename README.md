@@ -60,8 +60,7 @@ The idea is to have the Events Ordered by Timestamp.
 
 I haven't configured the [Time to Live (TTL)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html) in DynamoDB. The table will grow in infinitum.w
 
-* Only one Index
-
+* Only one Index\
 You might want to add more indexes to query the events as you like.
 
   * Info in [Terraform](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dynamodb_table#global_secondary_index) to add them in DynamoDB table configuration.
