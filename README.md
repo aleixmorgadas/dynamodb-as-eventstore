@@ -99,4 +99,10 @@ Example:
 
 ## Technical Debt
 
+- AWS Permissions
+
 The different AWS Roles have too much permissions in their policies. It will be convenient that you restricted those to what's really required.
+
+- AWS CloudWatch
+
+It will be convenient to setup a CloudWatch Dashboard with the main metrics to check regularly to know how the system is behaving.
