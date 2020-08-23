@@ -79,7 +79,8 @@ All events received by the lambda __must__ follow the next schema:
 | EmitterId | String    | true      | Id of the user or system that caused the event |
 | EmitterType | String    | true      | `SYSTEM` or `USER` is what we use. It's a free text |
 | Data      | Object     | false      | fields of the event |
-| null
+
+
 In case of not following the schema, the event will be rejected.
 
 Example:
