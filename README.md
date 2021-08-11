@@ -4,7 +4,7 @@ Using DynamoDB as EventStore with SQS and Lambda.
 
 [![practical-dev](.github/assets/infrastructure.png)](https://dev.to/aleixmorgadas/dynamodb-as-eventstore-3cbc)
 
-Article at https://dev.to/aleixmorgadas/dynamodb-as-eventstore-3cbc
+Article at https://learnings.aleixmorgadas.dev/p/dynamodb-as-eventstore?justPublished=true
 
 ## Setup local environment
 
@@ -91,7 +91,7 @@ Example:
 	"EventType"	: "EVENT_TEST",
 	"ID"		: "53877b2e-e496-11ea-b678-9b42a44d5e59",
 	"EmitterId"	: "6b04fd08-e496-11ea-8176-9f85e075569c",
-    "EmitterType": "USER",
+	"EmitterType": "USER",
 	"Data"		: {
 		"foo": "bar"
 	}
